@@ -3,7 +3,7 @@ const router=express.Router();
 
 const getModule=require('../module/hall');
 
-//router.get('/get',getModule.getBook);
+router.get('/get',getModule.getBook);
 
 router.post('/create',getModule.createBook);
 
