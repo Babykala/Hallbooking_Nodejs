@@ -7,6 +7,10 @@ app.use(express.json()); //inbuilt middleware //convert req body into json forma
 mongo.connect();
 
 app.use('/users',getRouter);
-app.listen('3001');
+
+const port=process.env.PORT || 3001
+app.listen(port,function(){
+    console.log("Port connected")
+});
 
 
