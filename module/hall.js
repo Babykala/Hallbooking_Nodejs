@@ -4,7 +4,7 @@ const {ObjectId}=require('mongodb');
 //Read
 module.exports.getBook=async (req,res,next)=>{
     try{
-        var data=await mongo.selectedDb.collection('hallBook').find().toArray();
+        var data=await mongo.selectedDb.collection('hall booking').find().toArray();
         res.send(data);
         
     }catch(err){
@@ -15,7 +15,7 @@ module.exports.getBook=async (req,res,next)=>{
 //create booked data
 module.exports.createBook=async (req,res,next)=>{
     try{
-        var mongoRes=await mongo.selectedDb.collection('hallBook').insert(req.body);
+        var mongoRes=await mongo.selectedDb.collection('hall booking').insert(req.body);
         res.send(mongoRes);
     }catch(err){
         console.log(err)
@@ -25,7 +25,7 @@ module.exports.createBook=async (req,res,next)=>{
 //update
 module.exports.updateBook=async (req,res,next)=>{
     try{
-        var mongoRes=await mongo.selectedDb.collection('hallBook').updateOne({_id:ObjectId(req.params.Id)},{$set:{...req.body}});
+        var mongoRes=await mongo.selectedDb.collection('hall booking').updateOne({_id:ObjectId(req.params.Id)},{$set:{...req.body}});
         res.send(mongoRes);
     }catch(err){
         console.log(err)
@@ -35,7 +35,7 @@ module.exports.updateBook=async (req,res,next)=>{
 //delete
 module.exports.deleteBook=async (req,res,next)=>{
     try{
-        var mongoRes=await mongo.selectedDb.collection('hallBook').remove({_id:ObjectId(req.params.Id)});
+        var mongoRes=await mongo.selectedDb.collection('hall booking').remove({_id:ObjectId(req.params.Id)});
         res.send(mongoRes);
     }catch(err){
         console.log(err)
