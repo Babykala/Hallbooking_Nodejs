@@ -5,7 +5,7 @@ module.exports = {
     async connect(){
         try{
             const client=await MongoClient.connect("mongodb+srv://Babykala:m2c2UObwUjB59sUX@cluster0.qy289.mongodb.net?retryWrites=true&w=majority");
-            this.selectedDb=client.db('mongoDB');
+            this.selectedDb=client.db('vbrs');
             console.log(this.selectedDb)
         }
         catch(error){console.log(error)}
